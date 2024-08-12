@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const {createBook,getBooks,updateBook} = require('../controller/books');
+const auth = require('../middleware/auth')
 const {check} = require ('express-validator')
 
 const validations = [
@@ -10,6 +11,6 @@ const validations = [
     })
 ]
 router.post("/",validations,createBook) // Validation Middleware declared
-router.get("/",validations,getBooks)
+router.get("/",auth,validations,getBooks)
 router.put("/:bookId",updateBook)
 module.exports = router

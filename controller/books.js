@@ -52,7 +52,7 @@ module.exports = {
             console.error(err.message);
             res.status(500).send('Server error');
         }
-        
+
     },
 
     async updateBook(req,res) {
